@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "projects": {
+    "first-class-functions": {
+      "projectType": "application",
+      "root": "apps/first-class-functions",
+      "sourceRoot": "apps/first-class-functions/src",
+      "prefix": "self-education",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/first-class-functions",
+            "index": "apps/first-class-functions/src/index.html",
+            "main": "apps/first-class-functions/src/main.ts",
+            "polyfills": "apps/first-class-functions/src/polyfills.ts",
+            "tsConfig": "apps/first-class-functions/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/first-class-functions/src/favicon.ico",
+              "apps/first-class-functions/src/assets"
+            ],
+            "styles": ["apps/first-class-functions/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/first-class-functions/src/environments/environment.ts",
+                  "with": "apps/first-class-functions/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "first-class-functions:build:production"
+            },
+            "development": {
+              "browserTarget": "first-class-functions:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "first-class-functions:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/first-class-functions/src/**/*.ts",
+              "apps/first-class-functions/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/first-class-functions"],
+          "options": {
+            "jestConfig": "apps/first-class-functions/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "first-class-functions-e2e": {
+      "root": "apps/first-class-functions-e2e",
+      "sourceRoot": "apps/first-class-functions-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/first-class-functions-e2e/cypress.json",
+            "tsConfig": "apps/first-class-functions-e2e/tsconfig.e2e.json",
+            "devServerTarget": "first-class-functions:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "first-class-functions:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/first-class-functions-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "first-class-functions"
+}
