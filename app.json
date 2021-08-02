@@ -1,0 +1,8 @@
+{
+  "name": "tablesready-test-name",
+  "environments": {
+    "review": {
+      "addons": ["heroku-redis:hobby-dev"]
+    }
+  }
+}
