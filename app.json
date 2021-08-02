@@ -1,0 +1,5 @@
+{
+  "environments": {
+    "addons": ["heroku-redis:hobby-dev"]
+  }
+}
