@@ -5,29 +5,29 @@ on:
 jobs:
   build_and_deploy:
     name: Build & deploy to staging
-      runs-on: ubuntu-latest
-      strategy:
-        matrix:
-          node-version: [12.x]
-      steps:
-        - name: Checkout repo
-          uses: actions/checkout@v2
-          with:
-            fetch-depth: 0
-        - name: Use Node.js ${{ matrix.node-version }}
-          uses: actions/setup-node@v1
-          with:
-            node-version: ${{ matrix.node-version }}
-        - name: Install dependencies
-          run: npm ci
-        - name: Build
-          run: npm run build
-        - name: Deploy to staging
-          uses: FirebaseExtended/action-hosting-deploy@v0
-          with:
-            repoToken: ${{ secrets.GITHUB_TOKEN }}
-            firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SELF_EDUCATION_26E10 }}
-            projectId: self-education-26e10
-            channelId: staging
-          env:
-            FIREBASE_CLI_PREVIEWS: hostingchannels
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+       - name: Checkout repo
+         uses: actions/checkout@v2
+         with:
+           fetch-depth: 0
+       - name: Use Node.js ${{ matrix.node-version }}
+         uses: actions/setup-node@v1
+         with:
+           node-version: ${{ matrix.node-version }}
+       - name: Install dependencies
+         run: npm ci
+       - name: Build
+         run: npm run build
+       - name: Deploy to staging
+         uses: FirebaseExtended/action-hosting-deploy@v0
+         with:
+           repoToken: ${{ secrets.GITHUB_TOKEN }}
+           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SELF_EDUCATION_26E10 }}
+           projectId: self-education-26e10
+           channelId: staging
+         env:
+           FIREBASE_CLI_PREVIEWS: hostingchannels
