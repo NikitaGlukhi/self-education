@@ -14,8 +14,10 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - name: Install npx
+        run: npm i npx
       - name: Deploy to prod
-        uses: NikitaGlukhi/firebase-clone-channels@v0.3
+        uses: NikitaGlukhi/firebase-clone-channels@v0.4
         with:
           firebase_service_account: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SELF_EDUCATION_26E10 }}
           project_id: self-education-26e10
