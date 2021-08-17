@@ -17,7 +17,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v2
           with:
-            node-version: ${{ matrix.node-version }}
+            node-version: '12'
       - name: Deploy to prod
         uses: NikitaGlukhi/firebase-clone-channels@v0.4
         with:
