@@ -10,6 +10,10 @@ jobs:
       matrix:
         node-version: [12.x]
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Deploy to prod
         uses: NikitaGlukhi/firebase-clone-channels@v0.2
         with:
