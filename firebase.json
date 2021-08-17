@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "./dist/first-class-functions",
+    "public": "./dist/apps/first-class-functions",
     "ignore": [
       "firebase.json",
       "**/.*",
