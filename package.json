@@ -55,6 +55,7 @@
     "@nrwl/eslint-plugin-nx": "12.4.0",
     "@nrwl/jest": "12.4.0",
     "@nrwl/linter": "12.4.0",
+    "@nrwl/node": "13.0.1",
     "@nrwl/nx-cloud": "latest",
     "@nrwl/tao": "12.4.0",
     "@nrwl/workspace": "12.4.0",

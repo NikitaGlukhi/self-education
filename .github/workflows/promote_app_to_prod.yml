@@ -15,4 +15,4 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "stage-test-app"
           heroku_email: "glukhi.nikita@gmail.com"
-          heroku_promote_to_app: "test-prod-app1,test-prod-app2"
+          heroku_promote_to_app: "test-prod-app2"
