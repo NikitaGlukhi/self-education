@@ -28,6 +28,12 @@
     "first-class-functions-e2e": {
       "tags": [],
       "implicitDependencies": ["first-class-functions"]
+    },
+    "function-apply-call": {
+      "tags": []
+    },
+    "object-prototyping": {
+      "tags": []
     }
   },
   "cli": {
