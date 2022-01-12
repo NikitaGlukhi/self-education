@@ -6,6 +6,8 @@ Array.prototype.toString = function() {
   return JSON.stringify(this);
 };
 
+console.log(1111111);
+
 Boolean.prototype.toString = function() {
   return JSON.stringify(this);
 };
