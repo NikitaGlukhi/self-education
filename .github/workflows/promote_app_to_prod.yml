@@ -8,9 +8,20 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 16.x ]
     steps:
-      - uses: actions/checkout@v2
-      - uses: NikitaGlukhi/heroku-pipelines-promoting@v2
+      - uses: actions/checkout@v3
+        with:
+          ref: 'main'
+
+      - name: Use Node.js 16
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+
+      - uses: NikitaGlukhi/heroku-pipelines-promoting@v2.1-alpha
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "stage-test-app"
