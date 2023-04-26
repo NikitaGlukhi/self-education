@@ -1,4 +1,4 @@
-name: Deploy to staging
+name: Deploy to staging (Firebase)
 on:
   push:
     branches: [ staging ]
