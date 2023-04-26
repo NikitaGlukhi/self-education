@@ -1,4 +1,4 @@
-name: Deploy to prod
+name: Deploy to prod (Firebase)
 on:
   push:
     branches: [ main ]
@@ -11,7 +11,7 @@ jobs:
         node-version: [ 16.x ]
     steps:
       - name: Deploy to prod
-        uses: NikitaGlukhi/firebase-clone-channels@v1.1-test1
+        uses: NikitaGlukhi/firebase-clone-channels@v1.1
         with:
           firebase_service_account: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SELF_EDUCATION_26E10 }}
           project_id: self-education-26e10
