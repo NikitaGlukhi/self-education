@@ -1,9 +1,9 @@
-name: Deploy Production to Heroku
+name: Deploy to staging (Heroku)
 
 on:
   push:
     branches:
-      - main
+      - staging
 
 jobs:
   build:
@@ -14,16 +14,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: 'main'
+          ref: 'staging'
 
       - name: Use Node.js 16
         uses: actions/setup-node@v3
         with:
           node-version: 16
 
-      - uses: NikitaGlukhi/heroku-pipelines-promoting@v2.1-alpha
+      - uses: akhileshns/heroku-deploy@v3.12.13 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "stage-test-app"
           heroku_email: "glukhi.nikita@gmail.com"
-          heroku_promote_to_app: "test-prod-app2"
