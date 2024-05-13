@@ -1,7 +1,6 @@
 name: Manually run forkflow
 on:
   workflow_dispatch:
-    ref: 'master'
     inputs:
       name:
         description: 'Manually run forkflow'
