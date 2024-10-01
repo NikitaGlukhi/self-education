@@ -10,19 +10,19 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 16.x ]
+        node-version: [ 20.x ]
     steps:
       - uses: actions/checkout@v3
         with:
           ref: 'staging'
 
-      - name: Use Node.js 16
+      - name: Use Node.js 20
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 20
 
       - uses: akhileshns/heroku-deploy@v3.12.13 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "stage-test-app"
-          heroku_email: "glukhi.nikita@gmail.com"
+          heroku_app_name: "staging-test-app"
+          heroku_email: "nikitaglukhi1999@gmail.com"
