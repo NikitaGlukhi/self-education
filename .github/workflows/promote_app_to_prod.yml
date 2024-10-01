@@ -10,20 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 16.x ]
+        node-version: [ 20.x ]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: 'main'
 
-      - name: Use Node.js 16
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
-      - uses: NikitaGlukhi/heroku-pipelines-promoting@v2.1-alpha
+      - uses: NikitaGlukhi/heroku-pipelines-promoting@v3
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "stage-test-app"
-          heroku_email: "glukhi.nikita@gmail.com"
-          heroku_promote_to_app: "test-prod-app2"
+          heroku_app_name: "staging-test-app"
+          heroku_email: "nikitaglukhi1999@gmail.com"
+          heroku_promote_to_app: "production-test-app1"
