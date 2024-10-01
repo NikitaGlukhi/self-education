@@ -8,13 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 16.x ]
+        node-version: [ 20.x ]
     steps:
       - name: Deploy to prod
-        uses: NikitaGlukhi/firebase-clone-channels@v1.1
+        uses: NikitaGlukhi/firebase-clone-channels@v2
         with:
           firebase_service_account: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SELF_EDUCATION_26E10 }}
           project_id: self-education-26e10
           channel_id: staging
           target_project_id: self-education-26e10
           target_channel_id: live
+          firebaseToolsVersion: 12.9.1
