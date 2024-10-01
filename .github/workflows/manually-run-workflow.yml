@@ -1,0 +1,16 @@
+name: Manually run forkflow
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Manually run forkflow'
+jobs:
+  test_job:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Test command
+        run: echo ${{ github.branch }}
