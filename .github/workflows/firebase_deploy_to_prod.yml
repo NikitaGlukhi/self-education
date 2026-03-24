@@ -5,10 +5,7 @@ on:
 jobs:
   build_and_deploy:
     name: Deploy to production
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 20.x ]
+    runs-on: ubuntu-22.04
     steps:
       - name: Deploy to prod
         uses: NikitaGlukhi/firebase-clone-channels@v2
