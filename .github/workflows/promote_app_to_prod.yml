@@ -16,7 +16,7 @@ jobs:
         with:
           ref: 'main'
 
-      - uses: NikitaGlukhi/heroku-pipelines-promoting@v3
+      - uses: NikitaGlukhi/heroku-pipelines-promoting@v3.0.1
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "staging-test-app"
