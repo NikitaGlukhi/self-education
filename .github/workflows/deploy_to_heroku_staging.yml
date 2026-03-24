@@ -7,10 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 20.x ]
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
         with:
@@ -21,7 +18,7 @@ jobs:
         with:
           node-version: 20
 
-      - uses: akhileshns/heroku-deploy@v3.12.13 # This is the action
+      - uses: akhileshns/heroku-deploy@v3.14.15 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "staging-test-app"
